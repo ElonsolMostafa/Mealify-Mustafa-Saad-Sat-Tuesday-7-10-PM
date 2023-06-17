@@ -1,0 +1,148 @@
+@media only screen and (max-width: 1200px) {
+  /* ************************************************** HOME ************************************************** */
+  #home header .navigation-bar i.menu {
+    display: inline-block;
+  }
+  #home header .navigation-bar .l-s-ul {
+    display: none;
+  }
+
+  /******************************************* GALLERY *******************************************/
+  #gallery .meals {
+    max-height: 1010px;
+  }
+
+  #gallery .meals .meal {
+    width: calc(100% / 3 - var(--gallery-gap) + 15px);
+  }
+
+  #footer .container {
+    flex-wrap: wrap;
+  }
+
+  /******************************************* FOOTER *******************************************/
+  #footer .left-col,
+  #footer .right-col {
+    order: -1;
+    flex: unset;
+    width: 50%;
+    margin-bottom: 50px;
+  }
+  #footer .middle-col {
+    flex: unset;
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  /* ************************************************** All ************************************************** */
+  .container {
+    width: 80%;
+  }
+
+  /* ************************************************** HOME ************************************************** */
+  #home header .h-details .d-f > div {
+    width: 100%;
+  }
+  #home header .h-details .content .btns .main-btn {
+    margin: 20px 20px 20px 0;
+  }
+
+  /* ************************************************** CHEFS ************************************************** */
+  #chefs .container .cards .chef {
+    margin-bottom: 30px;
+    width: 48%;
+  }
+
+  /******************************************* GALLERY *******************************************/
+  #gallery .meals {
+    max-height: 1600px;
+  }
+
+  #gallery .meals .meal {
+    width: calc(100% / 2 - var(--gallery-gap) + 15px);
+  }
+
+  /******************************************* CONTACT *******************************************/
+  #contact #contact-form input:nth-child(1),
+  #contact #contact-form input:nth-child(2),
+  #contact #contact-form input[placeholder="Subject"],
+  #contact #contact-form textarea {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  /* ************************************************** HOME ************************************************** */
+  #home header .navigation-bar .l-s-ul {
+    display: none;
+  }
+
+  #home header .h-details .content {
+    flex-wrap: wrap-reverse;
+  }
+
+  #home header .h-details .d-f {
+    justify-content: center;
+  }
+
+  #home header .h-details .d-f > div {
+    text-align: center;
+  }
+  #home header .h-details .content .btns .main-btn,
+  #home header .h-details .content .a-play {
+    font-size: 13px;
+  }
+
+  /******************************************* GALLERY *******************************************/
+  #gallery .meals {
+    max-height: 1500px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  /* ************************************************** CHEFS ************************************************** */
+  #chefs .container .cards .chef {
+    margin-bottom: 40px;
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 770px) {
+  /******************************************* GALLERY *******************************************/
+  #gallery .meals {
+    max-height: unset;
+  }
+  #gallery .meals .meal {
+    width: 100%;
+  }
+
+  /******************************************* CONTACT *******************************************/
+  #contact .details .info {
+    width: 100%;
+  }
+
+  /******************************************* FOOTER *******************************************/
+  #footer .left-col,
+  #footer .right-col {
+    width: 100%;
+    order: 0;
+  }
+
+  #footer .middle-col {
+    margin-bottom: 50px;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  /* ************************************************** CHEFS ************************************************** */
+  #chefs .container .cards .chef {
+    margin-bottom: 40px;
+    width: 100%;
+  }
+
+  /******************************************* GALLERY *******************************************/
+  #gallery .meals {
+    max-height: unset;
+  }
+}

@@ -1,0 +1,151 @@
+:root {
+  --second-color: hsl(35, 72%, 44%);
+  --dark-dark: #171717;
+  --dark-middle: #202020;
+  --dark-light: #252525;
+}
+
+body:has(#home header .navigation-bar #mode:checked) {
+  background-color: var(--dark-middle);
+}
+
+/* *************************************** ideo of change mode *************************************** */
+#home header .navigation-bar #mode:checked ~ label.light {
+  display: inline-block;
+  color: #fff;
+}
+#home header .navigation-bar #mode:checked ~ label.dark {
+  display: none;
+}
+
+/* ************************************************** All ************************************************** */
+body:has(#mode:checked) #gallery h2,
+body:has(#mode:checked) #chefs h2,
+body:has(#mode:checked) #contact h2 {
+  color: #9f9f9f;
+}
+
+body:has(#mode:checked) .special-h {
+  color: #fff;
+}
+
+body:has(#mode:checked) #gallery .pheader span,
+body:has(#mode:checked) #chefs .pheader span,
+body:has(#mode:checked) #contact .pheader span {
+  color: var(--second-color);
+}
+
+body:has(#mode:checked) .main-btn {
+  background-color: var(--second-color);
+  color: #000;
+}
+
+/* ************************************************** HOME ************************************************** */
+#home header .navigation-bar:has(#mode:checked) i.menu {
+  color: #eee;
+}
+
+#home header .navigation-bar:has(#mode:checked),
+#home header .navigation-bar:has(#mode:checked) aside:hover ul {
+  background-color: var(--dark-dark);
+}
+
+#home header .navigation-bar:has(#mode:checked) h1 {
+  color: #fff;
+}
+
+#home header .navigation-bar:has(#mode:checked) h1 span {
+  color: var(--second-color);
+}
+
+#home header .navigation-bar:has(#mode:checked) li a {
+  color: #9f9f9f;
+}
+
+#home header .navigation-bar:has(#mode:checked) li a::after {
+  background-color: var(--second-color);
+}
+
+#home header:has(#mode:checked) .h-details {
+  background-color: var(--dark-light);
+}
+
+/******** very good trick to make home as active when no target in dark mode  ********/
+body:not(:has(:target)):has(#mode:checked) nav a.home {
+  color: #fff !important;
+}
+
+body:has(#mode:checked):has(#home:target) nav a.home,
+body:has(#mode:checked):has(#chefs:target) nav a.chefs,
+body:has(#mode:checked):has(#gallery:target) nav a.gallery,
+body:has(#mode:checked):has(#contact:target) nav a.contact,
+#home header .navigation-bar:has(#mode:checked) li a:hover,
+#home header:has(#mode:checked) .h-details .content h2,
+#home header:has(#mode:checked) .h-details .content p,
+#home header:has(#mode:checked) .h-details .content .a-play,
+#home header:has(#mode:checked) .h-details .content .a-play i {
+  color: #fff;
+}
+
+#home header:has(#mode:checked) .h-details .content a .divI {
+  background-color: #000;
+}
+
+#home header:has(#mode:checked) .h-details .content .a-play:hover,
+#home header:has(#mode:checked) .h-details .content .a-play:hover i {
+  color: var(--second-color);
+}
+
+#home header:has(#mode:checked) .h-details .content .play-style {
+  background-image: linear-gradient(
+    to right,
+    var(--second-color) 0 50%,
+    transparent 50% 100%
+  );
+}
+
+/* ************************************************** CHEFS ************************************************** */
+
+body:has(#mode:checked) #chefs .cards .chef .details-card h3 {
+  color: #fff;
+}
+
+body:has(#mode:checked) #chefs .cards .chef .details-card p {
+  color: #9f9f9f;
+}
+
+body:has(#mode:checked) #chefs .cards .chef .divImg svg path {
+  fill: var(--dark-dark);
+}
+
+body:has(#mode:checked) #chefs .cards .chef .details-card {
+  background-color: var(--dark-dark);
+}
+
+/******************************************* GALLERY *******************************************/
+body:has(#mode:checked) #gallery {
+  background-color: var(--dark-light);
+}
+/******************************************* CONTACT *******************************************/
+body:has(#mode:checked) #contact .details .info {
+  background-color: #0d0d0d;
+}
+
+body:has(#mode:checked) #contact .details .info .div-icon {
+  background-color: var(--second-color);
+  color: #000;
+}
+
+body:has(#mode:checked) #contact .details .info p {
+  color: #fff;
+}
+
+body:has(#mode:checked) #contact #contact-form {
+  box-shadow: none;
+  background-color: var(--dark-dark);
+}
+
+/******************************************* FOOTER *******************************************/
+body:has(#mode:checked) #footer .right-col > div.d-f i {
+  color: var(--second-color);
+}

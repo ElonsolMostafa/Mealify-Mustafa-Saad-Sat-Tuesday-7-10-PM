@@ -1,0 +1,772 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --aside-width: 250px;
+  --main-color: hsl(0, 84%, 44%);
+  --gallery-gap: 15px;
+  --contact-gap: 15px;
+  --contact-form-gap: 15px;
+  --footer-middle-col-gap: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #dad9d6;
+  /* border-radius: 10px; */
+  /* box-shadow: inset 0 0 5px grey; */
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: #303030;
+}
+
+::-webkit-scrollbar {
+  width: 11px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+html,
+body {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: 1rem;
+}
+
+/* ************************************************** All ************************************************** */
+/* |||||| start my framework ||||||*/
+.d-f {
+  display: flex;
+}
+
+.alignI-c {
+  align-items: center;
+}
+
+.justifyC-sb {
+  justify-content: space-between;
+}
+
+.container {
+  width: 90%;
+  max-width: 1150px;
+  margin: 0 auto;
+}
+
+.special-h {
+  font-family: "Amatic SC", cursive;
+}
+
+/* main btn */
+.main-btn {
+  background-color: var(--main-color);
+  border-radius: 20px;
+  color: #ffffff;
+  padding: 12px 25px;
+  transition: all 0.3s ease-in-out;
+  border: none;
+  font-size: 15px;
+}
+.main-btn:hover {
+  background-color: #e22525;
+  cursor: pointer;
+}
+/* |||||| end my framework ||||||*/
+
+#chefs,
+#gallery,
+#contact {
+  padding: 100px 0;
+}
+
+/* we can use target like this (:target) or like this  */
+#chefs:target,
+#gallery:target,
+#contact:target {
+  scroll-margin-top: 50px;
+}
+
+#gallery .pheader,
+#chefs .pheader,
+#contact .pheader {
+  font-size: 3rem;
+  font-weight: 300;
+  margin-bottom: 35px;
+}
+
+#gallery .pheader span,
+#chefs .pheader span,
+#contact .pheader span {
+  color: var(--main-color);
+}
+
+#gallery p,
+#gallery h2,
+#gallery h3,
+#chefs p,
+#chefs h2,
+#chefs h3,
+#contact p,
+#contact h2,
+#contact h3 {
+  text-align: center;
+}
+
+#gallery h2,
+#chefs h2,
+#contact h2 {
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+/********************************** idea of active link 1/2 **********************************/
+/* to make home active when no target (when open website and url like http://127.0.0.1:5500/ not like http://127.0.0.1:5500/#chefs) */
+body:not(:has(:target)) nav a.home {
+  color: #000 !important;
+}
+body:not(:has(:target)) nav a.home::after {
+  width: 100% !important;
+}
+
+/********************************** idea of active link 2/2 **********************************/
+/* to make links of navbar active when click on it an go to its target (when url like like http://127.0.0.1:5500/#chefs)*/
+body:has(#home:target) nav a.home,
+body:has(#chefs:target) nav a.chefs,
+body:has(#gallery:target) nav a.gallery,
+body:has(#contact:target) nav a.contact,
+#home header nav li a:hover {
+  color: #000;
+}
+body:has(#home:target) nav a.home::after,
+body:has(#chefs:target) nav a.chefs::after,
+body:has(#gallery:target) nav a.gallery::after,
+body:has(#contact:target) nav a.contact::after,
+#home header nav li a:hover::after {
+  width: 100%;
+}
+
+/* ************************************************** HOME ************************************************** */
+/* ******** aside ******** */
+#home header .navigation-bar aside ul {
+  flex-direction: column;
+  position: fixed;
+  width: var(--aside-width);
+  right: calc(-1 * (var(--aside-width)));
+  overflow: hidden;
+  background-color: #fff;
+  color: #000;
+  height: 100vh;
+  top: 0;
+  z-index: 100;
+  padding-top: 50px;
+  transition: 0.5s;
+}
+
+#home header .navigation-bar aside ul li {
+  padding: 15px 0;
+}
+
+#home header .navigation-bar aside ul li a {
+  color: #949494;
+}
+#home header .navigation-bar i.menu {
+  display: none;
+  cursor: pointer;
+}
+
+#home header .navigation-bar i.menu:hover + aside ul {
+  right: 0;
+}
+
+#home header .navigation-bar aside:hover ul {
+  right: 0;
+}
+
+#home header .navigation-bar {
+  background-color: #fff;
+  box-shadow: 0px 0px 14px 0px #0000001b;
+  position: fixed;
+  width: 100%;
+  z-index: 99;
+}
+
+#home header .navigation-bar #mode {
+  display: none;
+}
+
+#home header .navigation-bar #mode ~ label.light {
+  display: none;
+  width: 30px;
+  cursor: pointer;
+}
+
+#home header .navigation-bar #mode ~ label.dark {
+  display: inline-block;
+  width: 30px;
+  cursor: pointer;
+}
+
+#home header nav .logo span {
+  color: var(--main-color);
+}
+
+#home header nav {
+  padding: 1.5rem 5px;
+}
+
+#home header nav h1 {
+  font-size: 1.7rem;
+  font-weight: 700;
+}
+
+#home header nav i {
+  font-size: 1.4rem;
+}
+
+#home header nav li a {
+  margin-right: 1.6rem;
+  padding-bottom: 0.4rem;
+  border-width: 0px;
+  font-weight: 600;
+  color: #7f7f90;
+  position: relative;
+  transition: 0.3s;
+}
+
+#home header nav li a::after {
+  content: " ";
+  width: 0;
+  height: 2px;
+  background-color: var(--main-color);
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  transition: 0.3s;
+}
+
+#home header .h-details {
+  min-height: 100vh;
+}
+
+#home header .h-details {
+  background-color: #eeeeee;
+}
+
+#home header .h-details .main-btn {
+  border-radius: 0 20px 20px;
+  margin-right: 2.2rem;
+}
+
+#home header .h-details .d-f > div {
+  width: 40%;
+}
+
+#home header .h-details .content {
+  min-height: 100vh;
+  padding-top: 5rem;
+}
+
+#home header .h-details .content h2 {
+  font-size: 4rem;
+  color: #37373f;
+}
+
+#home header .h-details .content p {
+  color: #4f4f5a;
+  font-size: 0.89rem;
+  line-height: 1.4rem;
+  margin-bottom: 20px;
+}
+
+#home header .h-details .content .a-play,
+#home header .h-details .content .a-play i {
+  transition: 0.4s;
+}
+
+#home header .h-details .content .a-play:hover,
+#home header .h-details .content .a-play:hover i {
+  color: #e22525;
+}
+
+#home header .h-details .content .play-style {
+  background-image: linear-gradient(
+    to right,
+    hsl(0, 84%, 44%) 0 50%,
+    transparent 50% 100%
+  );
+}
+
+#home header .h-details .content a {
+  color: #000;
+}
+
+#home header .h-details .content a .play-style {
+  display: inline-block;
+  border-radius: 50%;
+  padding: 8px;
+}
+#home header .h-details .content a .divI {
+  background-color: #fff;
+  display: flex;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+}
+
+#home header .h-details .content a .divI i {
+  color: #000;
+}
+
+#home header .h-details .divImg {
+  padding: 10px;
+}
+
+#home header .h-details .divImg img {
+  width: 100%;
+  filter: drop-shadow(4px 4px 9px #000a);
+}
+
+#home header .h-details .divImg img:hover {
+  animation: shake 0.8s;
+  animation-iteration-count: infinite;
+}
+
+/* w3 school solution */
+/* https://www.w3schools.com/howto/howto_css_shake_image.asp */
+
+/* my solution*/
+@keyframes shake {
+  0% {
+    transform: translate(0px, -1px) rotate(0deg);
+  }
+  10% {
+    transform: translate(-1px, -2px) rotate(-2deg);
+  }
+  20% {
+    transform: translate(-2px, 0px) rotate(0deg);
+  }
+  30% {
+    transform: translate(-1px, -1px) rotate(2deg);
+  }
+  40% {
+    transform: translate(0px, -2px) rotate(0deg);
+  }
+  50% {
+    transform: translate(-1px, -1px) rotate(-2deg);
+  }
+  60% {
+    transform: translate(-2px, 0px) rotate(0deg);
+  }
+  70% {
+    transform: translate(0px, -1px) rotate(2deg);
+  }
+  80% {
+    transform: translate(-1px, -2px) rotate(0deg);
+  }
+  90% {
+    transform: translate(-2px, -1px) rotate(-2deg);
+  }
+  100% {
+    transform: translate(-1px, 0px) rotate(-1deg);
+  }
+}
+
+/* ************************************************** CHEFS ************************************************** */
+#chefs .cards {
+  flex-wrap: wrap;
+}
+
+#chefs .cards .chef {
+  width: 31.5%;
+  box-shadow: 3px 3px 15px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+#chefs .cards .chef:hover {
+  transform: scale(1.06);
+}
+
+#chefs .cards .chef .details-card {
+  padding: 10px 25px 25px;
+}
+
+#chefs .cards .chef .details-card .smaller {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+#chefs .cards .chef .details-card p {
+  color: #7f7f90;
+}
+#chefs .cards .chef .details-card p:not(.smaller) {
+  font-size: 15px;
+  font-style: italic;
+}
+
+#chefs .cards .chef .details-card h3 {
+  margin-bottom: 10px;
+}
+
+#chefs .cards .chef .divImg {
+  position: relative;
+}
+
+#chefs .cards .chef .divImg .icons {
+  flex-direction: column;
+  position: absolute;
+  background-color: #eeeeee63;
+  padding: 10px 15px;
+  right: -100px;
+  top: 50px;
+  border-radius: 5px;
+  align-items: center;
+  transition: 0.5s;
+  transition-delay: 0.2s;
+}
+
+#chefs .cards .chef:hover .divImg .icons {
+  right: 10px;
+}
+
+#chefs .cards .chef .divImg .icons i {
+  color: #37373f66;
+  font-size: 20px;
+  margin-bottom: 20px;
+  transition: 0.5s;
+  cursor: pointer;
+}
+#chefs .cards .chef .divImg .icons i:hover {
+  color: #37373fe6;
+}
+
+#chefs .cards .chef .divImg img {
+  width: 100%;
+}
+
+#chefs .cards .chef .divImg svg {
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+}
+
+/******************************************* GALLERY *******************************************/
+#gallery {
+  background-color: #eeeeee;
+}
+#gallery .meals {
+  gap: var(--gallery-gap);
+  flex-direction: column;
+  flex-wrap: wrap;
+  max-height: 1050px;
+  align-items: center;
+  justify-content: flex-start;
+  align-content: center;
+}
+
+#gallery .meals .meal {
+  width: calc(100% / 3 - var(--gallery-gap));
+  position: relative;
+  overflow: hidden;
+  border: 4px solid #fff;
+}
+
+#gallery .meals .meal:hover .layer {
+  top: 0;
+  z-index: 10;
+}
+
+#gallery .meals .meal:hover img {
+  transform: scale(1.1);
+}
+
+#gallery .meals .meal .layer {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.717);
+  width: 100%;
+  height: 100%;
+  top: 115%;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  transition: 0.5s;
+  padding: 0 20px;
+}
+
+#gallery .meals .meal .layer h4,
+#gallery .meals .meal .layer p {
+  margin-bottom: 10px;
+  color: #fff;
+}
+#gallery .meals .meal .layer p {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+#gallery .meals .meal img {
+  width: 100%;
+  display: block;
+  transition: 0.5s;
+}
+
+/******************************************* CONTACT *******************************************/
+#contact .mapouter {
+  position: relative;
+  text-align: right;
+  width: 100%;
+  height: 390px;
+  margin-bottom: 35px;
+}
+#contact .gmap_canvas {
+  overflow: hidden;
+  background: none !important;
+  width: 100%;
+  height: 390px;
+}
+#contact .gmap_iframe {
+  height: 390px !important;
+}
+
+#contact .details {
+  margin-bottom: 20px;
+}
+
+#contact .details > div.d-f {
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--contact-gap);
+}
+
+#contact .details .info {
+  background-color: #ebebeba1;
+  padding: 20px;
+  width: calc((100% / 2) - var(--contact-gap) + 7px);
+}
+
+#contact .details .info .div-icon {
+  background-color: var(--main-color);
+  padding: 10px;
+  margin-right: 15px;
+  border-radius: 50%;
+  font-size: 20px;
+  color: #fff;
+  padding: 15px;
+  justify-content: center;
+}
+
+#contact .details .info h3 {
+  margin-bottom: 5px;
+  text-align: left;
+  color: #7d7d7d;
+}
+
+#contact .details .info p {
+  text-align: left;
+}
+
+#contact .details .info span.bold {
+  font-weight: bold;
+}
+
+#contact #contact-form {
+  gap: var(--contact-form-gap);
+  flex-wrap: wrap;
+  padding: 20px;
+  box-shadow: 0px 0px 24px 1px #dedede;
+  justify-content: center;
+}
+
+#contact #contact-form input,
+#contact #contact-form textarea {
+  transition: border 0.5s;
+}
+
+#contact #contact-form input:nth-child(1),
+#contact #contact-form input:nth-child(2) {
+  width: calc(50% - var(--contact-form-gap));
+  padding: 15px 10px;
+  border: 2px solid #ddd;
+  outline: none;
+}
+
+#contact #contact-form input[placeholder="Subject"],
+#contact #contact-form textarea {
+  padding: 15px 10px;
+  border: 2px solid #ddd;
+  outline: none;
+  width: calc(100% - var(--contact-form-gap));
+}
+
+#contact #contact-form textarea {
+  resize: vertical;
+  max-height: 300px;
+  min-height: 100px;
+}
+
+#contact #contact-form input:focus,
+#contact #contact-form textarea:focus {
+  border: 2px solid var(--main-color);
+}
+
+#contact #contact-form .main-btn {
+  margin-top: 20px;
+}
+
+/******************************************* FOOTER *******************************************/
+#footer {
+  background-color: #000;
+  color: #fff;
+  padding: 50px 0;
+}
+/*|||| left-col ||||*/
+#footer .left-col,
+#footer .right-col {
+  flex: 1;
+}
+#footer .middle-col {
+  flex: 2;
+}
+
+#footer .left-col,
+#footer .middle-col,
+#footer .right-col {
+  padding: 0 10px;
+}
+
+#footer .left-col .div-img {
+  width: 40px;
+  margin-right: 10px;
+}
+#footer .left-col .div-img img {
+  width: 100%;
+}
+
+#footer .left-col .div-img img {
+  width: 100%;
+}
+
+#footer .left-col .logo {
+  font-size: 1.7rem;
+  font-weight: 700;
+}
+
+#footer .left-col .logo span {
+  color: var(--main-color);
+}
+
+#footer .left-col h4 {
+  text-align: center;
+  margin-top: 15px;
+  border-bottom: 1px solid #fff;
+  padding: 10px 0;
+  font-size: 19px;
+  font-weight: 700;
+}
+
+#footer .left-col .div-icons {
+  font-size: 25px;
+  justify-content: space-around;
+}
+
+/*|||| middle-col ||||*/
+#footer .middle-col h4 {
+  font-size: 19px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+#footer .middle-col form {
+  margin: 20px 0;
+  gap: 5px;
+}
+
+#footer .middle-col form > input {
+  width: 100%;
+  outline: none;
+  padding: 10px;
+}
+
+#footer .middle-col form > button {
+  border-radius: 0;
+  padding: 10px;
+}
+
+#footer .middle-col form > button i {
+  margin-right: 5px;
+}
+
+#footer .middle-col ul.d-f {
+  flex-wrap: wrap;
+  gap: var(--footer-middle-col-gap);
+}
+
+#footer .middle-col ul.d-f li {
+  width: calc(50% - var(--footer-middle-col-gap));
+  font-size: 15px;
+  padding: 2px 5px;
+  transition: 0.3s;
+}
+
+#footer .middle-col ul.d-f li:hover {
+  background-color: #5555554f;
+  transform: translate(10px, 0);
+  cursor: pointer;
+}
+
+#footer .middle-col ul.d-f li i {
+  margin-right: 5px;
+}
+
+/*|||| right-col ||||*/
+#footer .right-col h4 {
+  font-size: 19px;
+}
+
+#footer .right-col > div.d-f {
+  margin-bottom: 15px;
+  margin-left: 10px;
+}
+
+#footer .right-col > div.d-f i {
+  color: var(--main-color);
+  margin-right: 15px;
+  font-size: 20px;
+}
+#footer .right-col > div.d-f p {
+  font-size: 15px;
+}
